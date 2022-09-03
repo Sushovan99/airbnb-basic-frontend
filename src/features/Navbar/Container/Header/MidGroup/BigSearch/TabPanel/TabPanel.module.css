@@ -1,0 +1,147 @@
+.tabPanelContainer {
+  border: 1px solid var(--border-color);
+  border-radius: 32px;
+  background-color: var(--big-search-form_background, unset);
+  color: var(--text-dark);
+  display: flex;
+  height: 66px;
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+
+.inActive {
+  --big-search-form_background: #ffffff;
+}
+
+.active {
+  --big-search-form_background: var(
+    --big-search-form_background_active,
+    --big-search-form_background_active
+  );
+}
+
+/* COMMON STYLES FOR DATE & GUEST FILTER */
+.dateBtn {
+  flex: 1 0 0%;
+  display: block;
+  appearance: none;
+  text-align: left;
+  cursor: pointer;
+  width: 0;
+  z-index: 1;
+  padding: 1px;
+  margin: 0;
+  outline: none;
+}
+
+.dateBtn::before {
+  content: '';
+  display: none;
+  height: 32px;
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  border-width: 0 3px;
+  border-style: solid;
+  border-color: var(--big-search-form_background, transparent);
+  left: 0;
+  margin-top: -16px;
+  right: 0;
+}
+
+.dateBtn::after {
+  content: '';
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.dateBtn:hover::before {
+  display: block;
+}
+
+.dateBtnActive {
+  z-index: 3;
+}
+
+.dateBtnActive::before {
+  display: block;
+}
+
+.dateBtnActive::after {
+  background-color: var(--background-white);
+  border-color: var(--background-white);
+  box-shadow: var(--filter-box-shadow);
+}
+
+.dateBtnActive:focus-visible {
+  z-index: 2 !important;
+}
+
+.dateBtnActive:focus-visible::before {
+  display: block !important;
+}
+
+.dateBtnActive:focus-visible::after {
+  -webkit-transition: box-shadow 0.2s ease !important;
+  transition: box-shadow 0.2s ease !important;
+  border-color: var(--text-dark) !important;
+  box-shadow: 0 0 0 1px var(--text-dark) !important;
+}
+
+.dateBtnInActive:focus-visible {
+  z-index: 2 !important;
+}
+
+.dateBtnInActive:focus-visible::before {
+  display: block !important;
+}
+
+.dateBtnInActive:focus-visible::after {
+  -webkit-transition: box-shadow 0.2s ease !important;
+  transition: box-shadow 0.2s ease !important;
+  border-color: var(--text-dark) !important;
+  box-shadow: 0 0 0 1px var(--text-dark) !important;
+  padding: 0;
+}
+
+.dateBtnInActive:hover::after {
+  background-color: var(
+    --big-search-button_background_hover,
+    var(--big-search-form_background)
+  );
+}
+
+.dateBtnInActive:hover::before {
+  display: block !important;
+}
+
+/* EXCLUSIVE GUEST FILTER STYLES */
+.addGuestBorder::before {
+  border-right: 0;
+}
+
+.gradientSearchBtnSmall {
+  padding-left: 8px;
+  padding-right: 4px;
+  transition: 0.1s opacity cubic-bezier(0.35, 0, 0.65, 1);
+  opacity: 0;
+}
+
+.gradientSearchBtnInactive {
+  transition-delay: 0.1s;
+}
+
+@media (min-width: 950px) {
+  .gradientSearchBtnActive {
+    opacity: 1;
+    transition: none;
+  }
+}

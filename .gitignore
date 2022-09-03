@@ -1,0 +1,5 @@
+# Ignoring the .next build folder
+.next
+
+# Ignoring node_modules folder
+node_modules
