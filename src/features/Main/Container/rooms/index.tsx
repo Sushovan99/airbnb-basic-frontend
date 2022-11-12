@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Box } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
@@ -7,9 +7,10 @@ import { rooms } from '@data/Rooms';
 import styles from './Rooms.module.css';
 
 export const Rooms: React.FC = () => {
+  const [allRooms, setAllRooms] = useState(rooms);
   return (
     <Box className={`${styles.containerGrid}`}>
-      {rooms.map((room) => (
+      {allRooms.map((room) => (
         <div key={room.id} className={styles.card}>
           <Box
             sx={{
