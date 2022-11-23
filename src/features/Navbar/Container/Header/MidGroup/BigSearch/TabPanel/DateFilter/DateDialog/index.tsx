@@ -3,7 +3,7 @@ import { CustomDatePicker } from '@src/components/DatePicker';
 import { useAppSelector } from '@store/hooks';
 import styles from './DateDialog.module.css';
 
-export const DateDialog: React.FC = () => {
+export const DateDialog: React.FC = ({ suppressHydrationWarning }) => {
   const isCheckInActive = useAppSelector(
     (state) => state.tabPanel.checkIn.isActive
   );
@@ -17,6 +17,7 @@ export const DateDialog: React.FC = () => {
         className={`${styles.container} ${
           isCheckInActive || isCheckOutActive ? styles.active : styles.hidden
         }`}
+        suppressHydrationWarning={suppressHydrationWarning}
       >
         <CustomDatePicker orientation="horizontal" padding={50} />
       </Box>
@@ -24,6 +25,7 @@ export const DateDialog: React.FC = () => {
         className={`${styles.containerSmall} ${
           isCheckInActive || isCheckOutActive ? styles.active : styles.hidden
         }`}
+        suppressHydrationWarning={suppressHydrationWarning}
       >
         <CustomDatePicker orientation="vertical" padding={0} />
       </Box>
