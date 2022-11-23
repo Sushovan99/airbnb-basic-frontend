@@ -21,7 +21,7 @@ export const DateFilter: React.FC = () => {
         }}
       ></Box>
       <CheckOut />
-      {process.browser && <DateDialog suppressHydrationWarning={true} />}
+      {process.browser && <DateDialog />}
     </Box>
   );
 };
